@@ -3,7 +3,7 @@ import json
 
 PDF_PATH = "book.pdf"
 OUTPUT_JSON = "vision_output.json"
-# Ignore text if belowe this font size
+# Ignore text if below this font size
 MIN_FONT_SIZE = 2
 
 def extract_from_pdf(pdf_path):

@@ -1,7 +1,19 @@
+import os
+import imageio_ffmpeg
+
+# This find the ffmpeg binary you installed via uv and tells the system to use it
+os.environ["IMAGEIO_FFMPEG_EXE"] = imageio_ffmpeg.get_ffmpeg_exe()
+# Also add it to the PATH so other libraries can find it
+ffmpeg_dir = os.path.dirname(imageio_ffmpeg.get_ffmpeg_exe())
+os.environ["PATH"] += os.pathsep + ffmpeg_dir
+
 from TTS.api import TTS
+
+device = "mps"
+tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
+
 import json
 from pydub import AudioSegment
-import os
 import re
 import torch
 
@@ -77,8 +89,8 @@ def generate_audiobook_coqui(input_json):
 
     for i, block in enumerate(data, start=1):
         # Skip blocks that you already have the audio
-        # if i <= 644:
-        #     continue
+        if i <= 97:
+            continue
 
         print(f"Processing block {i}/{len(data)}...")
 

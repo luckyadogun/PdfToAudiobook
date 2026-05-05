@@ -1,0 +1,16 @@
+[project]
+name = "pdftoaudiobook"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "coqui-tts>=0.25.3",
+    "imageio-ffmpeg>=0.6.0",
+    "jenkspy>=0.4.1",
+    "pydub>=0.25.1",
+    "pymupdf>=1.26.5",
+    "torch==2.5.1",
+    "torchaudio==2.5.1",
+    "transformers==5.0.0",
+]
